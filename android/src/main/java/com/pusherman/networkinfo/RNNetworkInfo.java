@@ -38,7 +38,7 @@ public class RNNetworkInfo extends ReactContextBaseJavaModule {
     WifiInfo info = wifi.getConnectionInfo();
     
       // This value should be wrapped in double quotes, so we need to unwrap it.
-      String ssid = null;
+      String ssid = "error";
       if (info.getSupplicantState() == SupplicantState.COMPLETED) {
         ssid = info.getSSID();
         if (ssid.startsWith("\"") && ssid.endsWith("\"")) {
@@ -53,7 +53,7 @@ public class RNNetworkInfo extends ReactContextBaseJavaModule {
   public void getBSSID(final Callback callback) {
     WifiInfo info = wifi.getConnectionInfo();
 
-    String bssid = null;
+    String bssid = "error";
     if (info.getSupplicantState() == SupplicantState.COMPLETED) {
       bssid = wifi.getConnectionInfo().getBSSID();
     }
@@ -63,7 +63,7 @@ public class RNNetworkInfo extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void getIPAddress(final Callback callback) {
-    String ipAddress = null;
+    String ipAddress = "error";
 
     try {
       for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
@@ -84,7 +84,7 @@ public class RNNetworkInfo extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void getIPV4Address(final Callback callback) {
-    String ipAddress = null;
+    String ipAddress = "error";
 
     try {
       for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
